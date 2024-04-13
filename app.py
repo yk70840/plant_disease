@@ -4,27 +4,27 @@ from python_scripts import predict
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
-def index():
-    return """
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Image Prediction</title>
-    </head>
-    <body>
-        <h1>Upload Image</h1>
-        <form action="/im_prediction" method="post" enctype="multipart/form-data">
-            <input type="file" name="image">
-            <button type="submit">Predict</button>
-        </form>
-    </body>
-    </html>
-    """
+# @app.route("/", methods=["GET"])
+# def index():
+#     return """
+#     <!DOCTYPE html>
+#     <html lang="en">
+#     <head>
+#         <meta charset="UTF-8">
+#         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#         <title>Image Prediction</title>
+#     </head>
+#     <body>
+#         <h1>Upload Image</h1>
+#         <form action="/im_prediction" method="post" enctype="multipart/form-data">
+#             <input type="file" name="image">
+#             <button type="submit">Predict</button>
+#         </form>
+#     </body>
+#     </html>
+#     """
 
-@app.route("/im_prediction", methods=["POST"])
+@app.route("/", methods=["POST"])
 def process_image():
   try:
     # Check if image file is uploaded
@@ -43,4 +43,5 @@ def process_image():
     # Handle any errors during processing
     return jsonify({"error": str(e)}), 500
 
-
+if __name__ == "__main__":
+    app.run(debug=True)
