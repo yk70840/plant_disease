@@ -24,7 +24,7 @@ app = Flask(__name__)
 #     </html>
 #     """
 
-@app.route("/", methods=["POST"])
+@app.route("/predict", methods=["POST"])
 def process_image():
   try:
     # Check if image file is uploaded
