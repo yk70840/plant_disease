@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
-    return send_from_directory("path/to/your/static", "index.html")
+    return send_from_directory("/index.html", "index.html")
 
 
 @app.route("/predict", methods=["POST"])
