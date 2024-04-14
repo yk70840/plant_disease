@@ -1,8 +1,7 @@
 from flask import Flask, jsonify, request , send_from_directory
 from PIL import Image
 
-
-from python_scripts import predict
+import predict
 
 app = Flask(__name__)
 
