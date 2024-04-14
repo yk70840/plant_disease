@@ -1,13 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request , send_from_directory
 from PIL import Image
 from python_scripts import predict
-from flask import send_from_directory
-
+import os
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
-    return send_from_directory("/index.html", "index.html")
+    return send_from_directory(os.path.dirname(__file__), "index.html")
 
 
 @app.route("/predict", methods=["POST"])
