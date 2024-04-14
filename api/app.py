@@ -1,11 +1,14 @@
 from flask import Flask, jsonify, request , send_from_directory
 from PIL import Image
+
+import sys
+sys.path.append(".")
 from python_scripts import predict
-import os
+
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
-def index():
+def home():
     # return send_from_directory(os.path.dirname(__file__), "index.html")
     return "Hello himanshu"
 
