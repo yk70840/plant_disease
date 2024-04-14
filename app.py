@@ -4,7 +4,6 @@ from python_scripts import predict
 import os
 app = Flask(__name__)
 
-
 @app.route("/", methods=["GET"])
 def index():
     # return send_from_directory(os.path.dirname(__file__), "index.html")
