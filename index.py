@@ -1,28 +1,14 @@
 from flask import Flask, jsonify, request
 from PIL import Image
 from python_scripts import predict
+from flask import send_from_directory
 
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
-    return """
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Image Prediction</title>
-    </head>
-    <body>
-        <h1>Upload Image</h1>
-        <form action="/predict" method="post" enctype="multipart/form-data">
-            <input type="file" name="image">
-            <button type="submit">Predict</button>
-        </form>
-    </body>
-    </html>
-    """
+    return send_from_directory("path/to/your/static", "index.html")
+
 
 @app.route("/predict", methods=["POST"])
 def process_image():
