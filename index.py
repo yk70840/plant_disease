@@ -6,11 +6,10 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
-    return send_from_directory(os.path.dirname(__file__), "index.html")
+    # return send_from_directory(os.path.dirname(__file__), "index.html")
+    return "hello himanshu"
 
-@app.route("/him", methods=["GET"])
-def him():
-    return "Hello himanshu"
+
 
 @app.route("/predict", methods=["POST"])
 def process_image():
